@@ -21,7 +21,7 @@ Flight.name = "Flight";
 Flight.description = "Flight is the ability to defy gravity and propel oneself through the air.";
 Flight.level = PowerRank.LevelTwo;
 
-SuperHeroe superman = new SuperHeroe();
+SuperHero superman = new SuperHero();
 superman.id = 1;
 superman.name = "Superman";
 superman.secretIdentity = "Clark Kent";
@@ -35,15 +35,23 @@ supermanPowers.Add(HeatVision); // se añade el superpoder HeatVision a la lista
 supermanPowers.Add(Flight); // se añade el superpoder Flight a la lista
 superman.powers = supermanPowers; // se asigna la lista de superpoderes al superhéroe
 
-class SuperHeroe
+class SuperHero
 {
-  public int id; // se puede usar int o guid para el id
+  // tambien se puede asignar un valor por defecto directamente en la declaración en lugar de usar el constructor
+  public int id = 1; // se puede usar int o guid para el id
   public string name;
   public string secretIdentity;
   public string city;
   //public string[] powers;
   public List<SuperPower> powers;
   public bool canFly;
+
+  // constructor
+  public SuperHero()
+  {
+    powers = new List<SuperPower>();
+    canFly = false;
+  }
 }
 
 class SuperPower
@@ -52,6 +60,11 @@ class SuperPower
   public string description;
   //public int level;
   public PowerRank level;
+
+  public SuperPower()
+  {
+    level = PowerRank.LevelOne;
+  }
 }
 
 enum PowerRank
