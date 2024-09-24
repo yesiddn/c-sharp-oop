@@ -1,4 +1,6 @@
 ﻿// See https://aka.ms/new-console-template for more information
+using System.Text;
+
 Console.WriteLine("Hello, World!");
 
 var SuperStrength = new SuperPower();
@@ -26,6 +28,7 @@ superman.id = 1;
 superman.name = "Superman";
 superman.secretIdentity = "Clark Kent";
 superman.city = "Metropolis";
+superman.canFly = true;
 //superman.powers = new[] { SuperStrength, SuperSpeed, HeatVision, Flight };
 
 List<SuperPower> supermanPowers = new List<SuperPower>(); // se crea una lista de superpoderes
@@ -34,6 +37,10 @@ supermanPowers.Add(SuperSpeed); // se añade el superpoder SuperSpeed a la lista
 supermanPowers.Add(HeatVision); // se añade el superpoder HeatVision a la lista
 supermanPowers.Add(Flight); // se añade el superpoder Flight a la lista
 superman.powers = supermanPowers; // se asigna la lista de superpoderes al superhéroe
+
+//superman.Fly();
+string supermanMessage = superman.useSuperPower();
+Console.WriteLine(supermanMessage);
 
 class SuperHero
 {
@@ -51,6 +58,29 @@ class SuperHero
   {
     powers = new List<SuperPower>();
     canFly = false;
+  }
+
+  public string useSuperPower()
+  {
+    StringBuilder sb = new StringBuilder(); // se crea un objeto StringBuilder para concatenar los mensajes
+    foreach (var power in powers)
+    {
+      sb.AppendLine($"{name} is using {power.name}!");
+    }
+
+    return sb.ToString();
+  }
+
+  public void Fly()
+  {
+    if (canFly)
+    {
+      Console.WriteLine($"{name} is flying!");
+    }
+    else
+    {
+      Console.WriteLine($"{name} can't fly.");
+    }
   }
 }
 
