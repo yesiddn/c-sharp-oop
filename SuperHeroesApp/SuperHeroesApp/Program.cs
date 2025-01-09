@@ -1,5 +1,6 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using System.Text;
+using SuperHeroesApp.Models; // se importa el namespace de la clase SuperPower
 
 Console.WriteLine("Hello, World!");
 
@@ -58,61 +59,6 @@ SuperHeroRecord supermanRecord2 = new(1, "Superman", "Clark Kent");
 
 bool areEqualRecord = supermanRecord == supermanRecord2; // los records son iguales si tienen el mismo contenido
 Console.WriteLine("SupermanRecord == SupermanRecord2: " + areEqualRecord);
-
-class SuperHero
-{
-  // tambien se puede asignar un valor por defecto directamente en la declaración en lugar de usar el constructor
-  public int id = 1; // se puede usar int o guid para el id
-  public string name;
-  public string secretIdentity;
-  public string city;
-  //public string[] powers;
-  public List<SuperPower> powers;
-  public bool canFly;
-
-  // constructor
-  public SuperHero()
-  {
-    powers = new List<SuperPower>();
-    canFly = false;
-  }
-
-  public string useSuperPower()
-  {
-    StringBuilder sb = new StringBuilder(); // se crea un objeto StringBuilder para concatenar los mensajes
-    foreach (var power in powers)
-    {
-      sb.AppendLine($"{name} is using {power.name}!");
-    }
-
-    return sb.ToString();
-  }
-
-  public void Fly()
-  {
-    if (canFly)
-    {
-      Console.WriteLine($"{name} is flying!");
-    }
-    else
-    {
-      Console.WriteLine($"{name} can't fly.");
-    }
-  }
-}
-
-class SuperPower
-{
-  public string name;
-  public string description;
-  //public int level;
-  public PowerRank level;
-
-  public SuperPower()
-  {
-    level = PowerRank.LevelOne;
-  }
-}
 
 enum PowerRank
 {
