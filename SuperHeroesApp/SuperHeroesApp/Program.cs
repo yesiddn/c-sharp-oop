@@ -24,6 +24,16 @@ Flight.name = "Flight";
 Flight.description = "Flight is the ability to defy gravity and propel oneself through the air.";
 Flight.level = PowerRank.LevelTwo;
 
+var SuperRegeneration = new SuperPower();
+SuperRegeneration.name = "Super regeneration";
+SuperRegeneration.description = "Super regeneration is the ability to heal rapidly from injuries.";
+SuperRegeneration.level = PowerRank.LevelFour;
+
+var FourthWall = new SuperPower();
+FourthWall.name = "Fourth wall awareness";
+FourthWall.description = "Fourth wall awareness is the ability to break the fourth wall and interact with the audience.";
+FourthWall.level = PowerRank.LevelOne;
+
 SuperHero superman = new SuperHero();
 superman.id = 1;
 superman.name = "Superman";
@@ -61,6 +71,25 @@ SuperHeroRecord supermanRecord2 = new(1, "Superman", "Clark Kent");
 
 //bool areEqualRecord = supermanRecord == supermanRecord2; // los records son iguales si tienen el mismo contenido
 //Console.WriteLine("SupermanRecord == SupermanRecord2: " + areEqualRecord);
+
+// antihero
+var deadpool = new AntiHero();
+deadpool.id = 2;
+deadpool.name = "Deadpool";
+deadpool.secretIdentity = "Wade Wilson";
+deadpool.city = "New York";
+deadpool.canFly = false;
+
+List<SuperPower> deadpoolPowers = new List<SuperPower>();
+deadpoolPowers.Add(SuperRegeneration);
+deadpoolPowers.Add(FourthWall);
+deadpool.powers = deadpoolPowers;
+// deadpool asesina a alguien
+string deadpoolActionMessage = deadpool.doAntiHeroAction("kill an evil man");
+Console.WriteLine(deadpoolActionMessage);
+
+string deadpoolMessage = deadpool.useSuperPower();
+Console.WriteLine(deadpoolMessage);
 
 enum PowerRank
 {
