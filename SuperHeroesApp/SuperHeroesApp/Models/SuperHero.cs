@@ -8,13 +8,13 @@ namespace SuperHeroesApp.Models
 {
   // internal se difiere de public en que solo se puede acceder a la clase desde el mismo proyecto, es decir, si creo otro proyecto llamado MarvelApp no podría acceder a esta clase, pero si a otras clases que sean public
   // los unicos modificadores de acceso que se pueden usar en una clase son public e internal
-  internal class SuperHero
+  internal class SuperHero : Hero
   {
     // tambien se puede asignar un valor por defecto directamente en la declaración en lugar de usar el constructor
     public int id = 1; // se puede usar int o guid para el id
     // Encapsulamiento -> ocultar el estado interno y la funcionalidad de un objeto y permitir solo el acceso a través de un conjunto público de funciones.
     private string _name; // se usa _name para diferenciarlo de la propiedad name
-    public string name
+    public override string name
     {
       get
       {
@@ -55,6 +55,12 @@ namespace SuperHeroesApp.Models
       }
 
       return sb.ToString();
+    }
+
+    // para sobreescribir un metodo de la clase base se usa override, es obligatorio hacer esto
+    public override string saveTheDay()
+    {
+      return $"{name} is saving the day!";
     }
 
     public void Fly()

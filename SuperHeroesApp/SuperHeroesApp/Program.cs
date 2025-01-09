@@ -52,8 +52,10 @@ supermanPowers.Add(Flight); // se añade el superpoder Flight a la lista
 superman.powers = supermanPowers; // se asigna la lista de superpoderes al superhéroe
 
 superman.Fly();
+Console.WriteLine(superman.sayHello()); // los metodos o atributos normales que vengan de una clase abstracta se heredan con normalidad
 string supermanMessage = superman.useSuperPower();
-Console.WriteLine(supermanMessage);
+string saveDayResult = superman.saveTheDay();
+Console.WriteLine(supermanMessage + saveDayResult);
 
 SuperHero superman2 = new SuperHero();
 superman2.id = 1;
@@ -72,6 +74,7 @@ SuperHeroRecord supermanRecord2 = new(1, "Superman", "Clark Kent");
 //bool areEqualRecord = supermanRecord == supermanRecord2; // los records son iguales si tienen el mismo contenido
 //Console.WriteLine("SupermanRecord == SupermanRecord2: " + areEqualRecord);
 
+Console.WriteLine("==========");
 // antihero
 var deadpool = new AntiHero();
 deadpool.id = 2;
