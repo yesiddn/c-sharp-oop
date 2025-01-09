@@ -12,7 +12,27 @@ namespace SuperHeroesApp.Models
   {
     // tambien se puede asignar un valor por defecto directamente en la declaración en lugar de usar el constructor
     public int id = 1; // se puede usar int o guid para el id
-    public string name;
+    // Encapsulamiento -> ocultar el estado interno y la funcionalidad de un objeto y permitir solo el acceso a través de un conjunto público de funciones.
+    private string _name; // se usa _name para diferenciarlo de la propiedad name
+    public string name
+    {
+      get
+      {
+        return _name;
+      }
+      set
+      {
+        _name = value.Trim();
+      }
+    }
+
+    public string nameAndSecretIdentity
+    {
+      get
+      {
+        return $"My name is {name} and my secret identity is {secretIdentity}.";
+      }
+    }
     public string secretIdentity;
     public string city;
     //public string[] powers;

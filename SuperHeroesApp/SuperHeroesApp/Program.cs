@@ -30,18 +30,20 @@ superman.name = "Superman";
 superman.secretIdentity = "Clark Kent";
 superman.city = "Metropolis";
 superman.canFly = true;
+Console.WriteLine(superman.nameAndSecretIdentity);
+
 //superman.powers = new[] { SuperStrength, SuperSpeed, HeatVision, Flight };
 
-//List<SuperPower> supermanPowers = new List<SuperPower>(); // se crea una lista de superpoderes
-//supermanPowers.Add(SuperStrength); // se añade el superpoder SuperStrength a la lista
-//supermanPowers.Add(SuperSpeed); // se añade el superpoder SuperSpeed a la lista
-//supermanPowers.Add(HeatVision); // se añade el superpoder HeatVision a la lista
-//supermanPowers.Add(Flight); // se añade el superpoder Flight a la lista
-//superman.powers = supermanPowers; // se asigna la lista de superpoderes al superhéroe
+List<SuperPower> supermanPowers = new List<SuperPower>(); // se crea una lista de superpoderes
+supermanPowers.Add(SuperStrength); // se añade el superpoder SuperStrength a la lista
+supermanPowers.Add(SuperSpeed); // se añade el superpoder SuperSpeed a la lista
+supermanPowers.Add(HeatVision); // se añade el superpoder HeatVision a la lista
+supermanPowers.Add(Flight); // se añade el superpoder Flight a la lista
+superman.powers = supermanPowers; // se asigna la lista de superpoderes al superhéroe
 
-////superman.Fly();
-//string supermanMessage = superman.useSuperPower();
-//Console.WriteLine(supermanMessage);
+superman.Fly();
+string supermanMessage = superman.useSuperPower();
+Console.WriteLine(supermanMessage);
 
 SuperHero superman2 = new SuperHero();
 superman2.id = 1;
@@ -50,15 +52,15 @@ superman2.secretIdentity = "Clark Kent";
 superman2.city = "Metropolis";
 superman2.canFly = true;
 
-bool areEqual = superman == superman2; // aunque dos clases tengan el mismo contenido no son iguales
-Console.WriteLine("Superman == Superman2: " + areEqual);
+//bool areEqual = superman == superman2; // aunque dos clases tengan el mismo contenido no son iguales
+//Console.WriteLine("Superman == Superman2: " + areEqual);
 
 //SuperHeroRecord supermanRecord = new SuperHeroRecord(1, "Superman", "Clark Kent");
 SuperHeroRecord supermanRecord = new(1, "Superman", "Clark Kent"); // esta es otra forma de instanciar una clase o un record para no tener que repetir el nombre de la clase
 SuperHeroRecord supermanRecord2 = new(1, "Superman", "Clark Kent");
 
-bool areEqualRecord = supermanRecord == supermanRecord2; // los records son iguales si tienen el mismo contenido
-Console.WriteLine("SupermanRecord == SupermanRecord2: " + areEqualRecord);
+//bool areEqualRecord = supermanRecord == supermanRecord2; // los records son iguales si tienen el mismo contenido
+//Console.WriteLine("SupermanRecord == SupermanRecord2: " + areEqualRecord);
 
 enum PowerRank
 {
